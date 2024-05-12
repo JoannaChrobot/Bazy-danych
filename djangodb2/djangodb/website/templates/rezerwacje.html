@@ -1,0 +1,20 @@
+<table>
+    <tr>
+      <th>NrRezerwacji</th>
+      <th>Pesel</th>
+      <th>Pokój</th>
+      <th>Termin rezerwacji</th>
+      <th>Data zlozenia</th>
+      <th>Cena</th>
+    </tr>
+    {% for rez in Rezerwacje %}
+      <tr>
+        <td>{{ rez.NrRezerwacji }}</td>
+        <td>{{ rez.Pesel }}</td>
+        <td>{{ rez.Pokoj }}</td>
+        <td>{{ rez.Termin_rezerwacji }}</td>
+        <td>{{ rez.Data_zlozenia }}</td>
+        <td>{{ rez.Cena }}</td>
+      </tr>
+    {% endfor %}
+  </table>
