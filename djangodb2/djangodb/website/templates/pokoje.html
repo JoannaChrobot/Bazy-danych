@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podwójna tabela z pokojami</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 1em;
+            /* text-align: center; */
+        }
+
+        /* linki */
+        nav a { 
+            color: white;
+            text-decoration: none;
+            margin: 0 1em;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .table-container {
+            margin-left: 20px;
+            display: flex;
+            gap: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        /* Stylizacja formularza */
+        .search-container {
+            margin-bottom: 20px;
+            margin-left: 20px;
+        }
+        .search-container input[type=text] {
+            width: 150px;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        .search-container button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        h1 {
+        margin-left: 20px;
+        }   
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" style="text-align: left;">Imie i Nazwisko</a>
+        <a href="osoby"style="margin-left: 380px;">Osoby</a>
+        <a href="rezerwacje">Rezerwacje</a>
+        <a href="pokoje">Pokoje</a>
+        <a href="grafik">Grafik Pracy</a>
+        <a href="zadania">Zadania</a>
+        <a href="wyloguj"style="margin-left: 380px;">Wyloguj</a>
+    </nav>
+    <h1 >Lista pokoi</h1>
+    <div class="search-container">
+        <form action="" method="GET">
+            <input type="text" placeholder="ID pokoju" name="pokoj_id">
+            <button type="submit">Szukaj</button>
+        </form>
+    </div>
+
+    <div class="table-container">
+        <table style="width:10%" id="roomTable">
+            <thead>
+                <tr>
+                    <th>ID pokoju</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pokoj in Pomieszczenie %}
+                <tr>
+                    <td><a href="?pokoj_Symbol={{ pokoj.Symbol }}">{{ pokoj.Symbol }}</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <table style="margin-right: 20px;" id="infoTable">
+            <thead>
+                <tr>
+                    <th scope="col">Symbol</th>
+                    <th scope="col">Rodzaj</th>
+                    <th scope="col">Max. osob</th>
+                    <th scope="col">Usterki</th>
+                    <th scope="col">Opis</th>
+                    <th scope="col">Stan czystości</th>
+                    <th scope="col">Zadanie</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                {% for osoba in Pomieszczenie %}
+                <tr>
+                    <td>{{ osoba.Symbol }} </td>
+                    <td>{{ osoba.Rodzaj }} </td>
+                    <td>{{ osoba.Maks_osob }} </td>
+                    <td>{{ osoba.Usterki }} </td>
+                    <td>{{ osoba.Opis }} </td>
+                    <td>{{ osoba.Stan_czystości }} </td>
+                    <td>{{ osoba.Zadanie }} </td>
+                </tr>
+                {% endfor %}
+            
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

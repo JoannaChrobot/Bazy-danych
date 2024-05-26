@@ -21,6 +21,16 @@ class Osoba(models.Model):
     def __str__(self):
         return self.Imie + ' ' + self.Nazwisko
 
+class Pracownik(models.Model):
+    ID_Pracownika = models.OneToOneField(Osoba, on_delete=models.CASCADE)
+    Stanowisko = models.CharField(max_length=30)
+    Zadanie = models.CharField(max_length=30)
+    Haslo = models.CharField(max_length=100)
+
+    def __str__(self):
+        return 'Pracownik '+ self.ID_Pracownika.Imie + ' '+ self.ID_Pracownika.Nazwisko
+ 
+
 class Pomieszczenie(models.Model):
     Symbol = models.CharField(max_length=5)
     Rodzaj = models.CharField(max_length=30)
@@ -44,15 +54,7 @@ class Rezerwacja(models.Model):
     def __str__(self):
         return 'Rezerwacja ' + str(self.NrRezerwacji)
    
-class Pracownik(models.Model):
-    ID_Pracownika = models.OneToOneField(Osoba, on_delete=models.CASCADE)
-    Stanowisko = models.CharField(max_length=30)
-    Zadanie = models.CharField(max_length=100)
-    Haslo = models.CharField(max_length=100)
-
-    def __str__(self):
-        return 'Pracownik '+ self.ID_Pracownika.Imie + ' '+ self.ID_Pracownika.Nazwisko
-    
+   
 class Grafik(models.Model):
     ID_grafik = models.IntegerField()
     ID_Pracownika = models.ForeignKey(Pracownik, on_delete=models.CASCADE)

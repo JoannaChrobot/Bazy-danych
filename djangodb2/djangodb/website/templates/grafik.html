@@ -1,0 +1,135 @@
+<!-- #{% extends 'base.html' %} -->
+
+<!-- {% block content %} -->
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Przyciski i Tytuł</title>
+    <style>
+        /* .glowy_pasek {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        } */
+        /* .glowy_pasek button, .glowy_pasek h1 {
+            margin: 0 100px;
+        } */
+        /* td, th {
+            padding-left: 30px;
+            padding-right: 50px;
+        } */
+        tr {
+            margin-bottom: 100px; /* Odstęp między wierszami */
+        }
+        nav {
+            background-color: #333;
+            padding: 1em;
+        }
+
+        /* linki */
+        nav a { 
+            color: white;
+            text-decoration: none;
+            margin: 0 1em;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+        h1 {
+            margin-left: 20px;
+        }  
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" style="text-align: left;">Imię i Nazwisko</a>
+        <a href="osoby"style="margin-left: 380px;">Osoby</a>
+        <a href="rezerwacje">Rezerwacje</a>
+        <a href="pokoje">Pokoje</a>
+        <a href="grafik">Grafik Pracy</a>
+        <a href="zadania">Zadania</a>
+        <a href="wyloguj"style="margin-left: 380px;">Wyloguj</a>
+    </nav>
+    
+    </br></br>
+
+          <tr> 
+          <h1>Wszystkie zadania</h1>
+        </tr>
+
+
+        <table class="table" style="margin-left: 20px; margin-right: 50px;">
+            <thead>
+              <tr>
+                <th scope="col">ID_grafik</th>
+                <th scope="col">ID_Pracownika</th>
+                <th scope="col">Miesiac</th>
+                <th scope="col">Zmiana</th>
+              </tr>
+            </thead>
+            <tbody> 
+                
+                {% for prac in Grafik %}
+                <!-- {% if room.Zadanie != "brak" %} sprawdza czy jest jakies zadanie w pomieszczeniu -->
+                <tr>
+                    <td>{{prac.ID_grafik}}</td>
+                    <td>{{prac.ID_Pracownika}}</td>
+                    <td>{{prac.Miesiac}}</td>
+                    <td>{{prac.Zmiana}}</td>
+                </tr>
+              <!-- {% endif %} -->
+              {% endfor %}
+            </tbody>
+          </table>
+    <!-- <div class="container">
+        <table class="zadania">
+            <thead>
+                <tr>      
+                    <th>Symbol</th>
+                    <th>Rodzaj</th>
+                    <th>Zadania do wykonania</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for room in Pomieszczenie %}
+                <tr>
+                    {% if room.Zadanie != "brak" %}
+                    <td>{{ room.Symbol }}</td>
+                    <td>{{ room.Rodzaj }}</td>
+                    <td>{{ room.Zadanie }}</td>
+                    {% endif %}
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div> -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+
+
+<!-- <table>
+    <tr>
+      <th>Symbol</th>
+      <th>Rodzaj</th>
+    </tr>
+    {% for rez in Pomieszczenie %}
+      <tr>
+        <td>{{ rez.Symbol }}</td>
+        <td>{{ rez.Rodzaj }}</td>
+      </tr>
+    {% endfor %}
+  </table> -->
+
+    <!-- <button type="button" class="btn btn-link">Link</button> -->
+<!-- {% endblock %} -->
+

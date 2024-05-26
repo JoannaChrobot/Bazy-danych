@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+nav {
+    background-color: #333;
+    padding: 1em;
+    /* text-align: center; */
+}
+
+/* linki */
+nav a { 
+    color: white;
+    text-decoration: none;
+    margin: 0 1em;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+.kafelki {
+    display: flex;
+    justify-content: center; /* Wycentrowanie kafelków w poziomie */
+
+    flex-wrap: wrap;
+    gap: 20px; /* Odstęp między kafelkami */
+}
+.kafelki .kafel {
+    width: 200px;
+    height: 200px;
+    background-color: #ccc;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    
+    text-decoration: none; /* Usuń domyślny podkreślnik */
+    color: #000; /* Kolor tekstu */
+}
+
+.kafelki .kafel:hover {
+    background-color: #ddd;
+}
+
+p {
+    text-align: center; 
+    font-weight: bold;
+    font-size: 20px; 
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" style="text-align: left;">Imie i Nazwisko</a>
+        <a href="osoby"style="margin-left: 380px;">Osoby</a>
+        <a href="rezerwacje">Rezerwacje</a>
+        <a href="pokoje">Pokoje</a>
+        <a href="grafik">Grafik Pracy</a>
+        <a href="zadania">Zadania</a>
+        <a href="wyloguj"style="margin-left: 380px;">Wyloguj</a>
+    </nav>
+    <main>
+        <p>Strona głowna</p>
+    </main>
+    <div class="kafelki">
+        <a href="osoby" class="kafel">Osoby</a>
+        <a href="rezerwacje" class="kafel">Rezerwacje</a>
+        <a href="pokoje" class="kafel">Pokoje</a>
+         <a href="grafik" class="kafel">Grafik Pracy</a>
+        <a href="zadania" class="kafel">Zadania</a>
+        <!-- <a href="wyloguj.html" class="kafel">Wyloguj</a> -->
+    </div>
+</body>
+</html>
